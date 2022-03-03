@@ -4,14 +4,7 @@ import os
 from discordTogether import DiscordTogether as yt
 
 PREFIX = [
-    'SS1 ',
-    'SS1',
-    'sS1 ',
-    'sS1',
-    'Ss1 ',
-    'Ss1',
-    'ss1 ',
-    'ss1',
+    'Dp.', 'dp.','dP.','DP.'
 ]
 
 
@@ -39,4 +32,4 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')
 
-bot.run("ODg3NTE3MjgzNjg4MjgwMDg4.YUFS4Q.ntVj34qLnlZICag_m5N2w9R4WiM")
+bot.run("OTQ4NDI0ODYxNjg3MTE1ODU3.Yh7new.XtlndavfSVTjui4rfPbhNI_tOGk")
