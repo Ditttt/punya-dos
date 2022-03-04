@@ -12,6 +12,31 @@ bot = commands.Bot(command_prefix=PREFIX)
 
 together_control = yt(bot)
 
+class MyNewHelp(commands.MinimalHelpCommand):
+    async def send_pages(self):
+        destination = self.get_destination()
+        for page in self.paginator.pages:
+            emby = discord.Embed(description=page, color=discord.Color.purple())
+            emby.set_thumbnail(url=bot.user.avatar_url)
+            await destination.send(embed=emby)
+    
+    async def send_command_help(self, command):
+        embed = discord.Embed(title=self.get_command_signature(command), color=discord.Color.purple())
+        embed.add_field(name="Help", value=command.help)
+        alias = command.aliases
+        if alias:
+            embed.add_field(name="Aliases", value=", ".join(alias), inline=False)
+
+        channel = self.get_destination()
+        await channel.send(embed=embed)
+    
+    async def send_error_message(self, error):
+        embed = discord.Embed(title="Error", description=error, color=discord.Color.red())
+        channel = self.get_destination()
+        await channel.send(embed=embed)
+
+bot.help_command = MyNewHelp()
+
 
 @bot.command()
 async def startYT(ctx):
