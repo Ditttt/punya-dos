@@ -76,6 +76,12 @@ async def on_ready():
     channel = bot.get_channel(946630512162791434)
     await channel.send(f'''Delpi is online''')
 
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def dm(ctx, user: discord.Member, *, message):
+    await user.send(message)
+    await ctx.send(f"{user.mention} has received your message")
+
 
 @bot.command()
 async def load(ctx, extension):
