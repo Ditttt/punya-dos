@@ -43,6 +43,38 @@ async def startYT(ctx):
     link = await together_control.create_link(ctx.author.voice.channel.id, 'youtube')
     await ctx.send(f"Click the blue link!\n{link}")
 
+@bot.command(aliases=["rep"])
+async def report(ctx, *, args):
+    await ctx.send(
+        content=
+        f'oke {ctx.author.mention} kita selidiki ya,Sorry banget :SS_cat_blush:'
+    )
+    channel = bot.get_channel(946630512162791434)
+    await channel.send(f'''
+Hey <@851997270597828618> ada report baru nih
+Report : {args}
+Reporter : {ctx.author.mention}
+Id Reporter: {ctx.author.id}
+Id channel : {ctx.channel.id}
+Channel : {ctx.channel.mention}''')
+
+@bot.command()
+async def say(ctx, *, args):
+  admin = [763433861634850816,851997270597828618]
+  if ctx.author.id in admin:
+    await ctx.send(args)
+    await ctx.message.delete()
+  else:
+    pass
+
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Delpi"))
+    print('Connected to bot: {}'.format(bot.user.name))
+    print('Bot ID: {}'.format(bot.user.id))
+    channel = bot.get_channel(946630512162791434)
+    await channel.send(f'''Delpi is online''')
+
 
 @bot.command()
 async def load(ctx, extension):
