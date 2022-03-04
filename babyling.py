@@ -9,6 +9,7 @@ PREFIX = [
 
 
 bot = commands.Bot(command_prefix=PREFIX)
+empety_array = []
 
 together_control = yt(bot)
 
@@ -75,6 +76,32 @@ async def on_ready():
     print('Bot ID: {}'.format(bot.user.id))
     channel = bot.get_channel(946630512162791434)
     await channel.send(f'''Delpi is online''')
+
+@bot.event
+async def on_message(message):
+        modmail_channel2 = utils.get(bot.get_all_channels(), id=946630512162791434)
+        if message.author.bot:
+            return
+
+        if message.author == bot.user:
+            return
+
+        if message.content in bot.commands:
+            return
+
+        if str(message.channel.type) == "private":
+
+            if message.attachments != empety_array:
+                files = message.attachments
+                await modmail_channel2.send(f"[{message.athor.mention}]")
+
+                for file in files:
+                    await modmail_channel2.send(file.url)
+
+            else:
+                await modmail_channel2.send(
+                    f"[{message.author.mention}] {message.content}"
+                )
 
 @bot.command()
 @commands.has_permissions(administrator=True)
