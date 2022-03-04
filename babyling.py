@@ -102,6 +102,7 @@ async def on_message(message):
                 await modmail_channel2.send(
                     f"[{message.author.mention}] {message.content}"
                 )
+        await bot.process_commands(message)
 
 @bot.command()
 @commands.has_permissions(administrator=True)
