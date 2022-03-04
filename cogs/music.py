@@ -30,8 +30,8 @@ class Music(commands.Cog, discordSuperUtils.CogManager.Cog):
     @discordSuperUtils.CogManager.event(discordSuperUtils.MusicManager)
     async def on_music_error(self, ctx, error):
         errors = {
-            discordSuperUtils.NotPlaying: "I am not playing anything!",
-            discordSuperUtils.NotConnected: "I am not connected to a voice channel!",
+            discordSuperUtils.NotPlaying: "aku tidak memutar musik apapun",
+            discordSuperUtils.NotConnected: "aku belum join voice channel",
             discordSuperUtils.NotPaused: "The currently playing player is not paused!",
             discordSuperUtils.QueueEmpty: "The queue is empty!",
             discordSuperUtils.AlreadyConnected: "I am already connected to a voice channel!",
