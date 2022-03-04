@@ -79,7 +79,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-        modmail_channel2 = utils.get(bot.get_all_channels(), id=946630512162791434)
+        modmail_channel2 = discord.utils.get(bot.get_all_channels(), id=946630512162791434)
         if message.author.bot:
             return
 
