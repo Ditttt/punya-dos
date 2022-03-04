@@ -50,6 +50,7 @@ async def report(ctx, *, args):
         f'oke {ctx.author.mention} kita selidiki ya,Sorry banget :SS_cat_blush:'
     )
     channel = bot.get_channel(946630512162791434)
+    em = discord.utils.get(bot.emojis, name='SS_cat_blush')
     await channel.send(f'''
 Hey <@851997270597828618> ada report baru nih
 Report : {args}
